@@ -68,7 +68,9 @@ module Moqueue
     end
 
     def bind(exchange, key=nil)
-      exchange.attach_queue(self, key)
+      # the exchange reference is used to implement the delete method
+      @exchange = exchange
+      @exchange.attach_queue(self, key)
       self
     end
 
@@ -105,6 +107,10 @@ module Moqueue
     def null_subscribe
       subscribe {|msg| nil}
       self
+    end
+
+    def delete
+      @exchange.detach_queue @name
     end
 
     private

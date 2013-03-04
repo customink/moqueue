@@ -4,7 +4,7 @@ module Moqueue
     def mock_queue_and_exchange(name=nil)
       queue = mock_queue(name)
       exchange = mock_exchange
-      exchange.attached_queues << queue
+      queue.bind(exchange)
       [queue, exchange]
     end
 

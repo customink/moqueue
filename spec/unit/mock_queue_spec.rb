@@ -4,7 +4,7 @@ describe MockQueue do
 
   before(:each) do
     reset_broker
-    @queue, @exchange = mock_queue_and_exchange
+    @queue, @exchange = mock_queue_and_exchange("queue")
   end
 
   it "should accept options for :ack=>(true|false) :nowait=>(true|false)" do
@@ -152,4 +152,8 @@ describe MockQueue do
     queue.received_message?("I'm feelin this").should be_true
   end
 
+  it "should delete an attached queue" do
+    MockExchange.any_instance.expects(:detach_queue).with("queue").once
+    @queue.delete
+  end
 end

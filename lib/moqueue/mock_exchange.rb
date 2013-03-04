@@ -54,6 +54,13 @@ module Moqueue
       end
     end
 
+    def detach_queue(queue)
+      attached_queues.delete_if do |attached|
+        # topic and direct queues are added as a tuple with their binding
+        attached.is_a?(Array) ? attached[0].name == queue : attached.name == queue
+      end
+    end
+
     def publish(message, opts={})
       require_routing_key(opts) if topic
       matching_queues(opts).each do |q|

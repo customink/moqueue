@@ -4,7 +4,7 @@ describe MockExchange do
 
   before(:each) do
     reset_broker
-    @queue, @exchange = mock_queue_and_exchange
+    @queue, @exchange = mock_queue_and_exchange("queue")
   end
 
   it "should manually attach queues" do
@@ -22,6 +22,11 @@ describe MockExchange do
       deferred_block_called && msg.should == "mmm, smoothies"
     end
     exchange.publish("mmm, smoothies")
+  end
+
+  it "should manually detach queues" do
+    @exchange.detach_queue "queue"
+    @exchange.attached_queues.length.should == 0
   end
 
   it "should accept options for the publish method" do
