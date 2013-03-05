@@ -74,6 +74,12 @@ describe "AMQP and MQ", "when overloaded by moqueue/overloads" do
     lambda { AMQP::Channel.new.prefetch(1337) }.should_not raise_error
   end
 
+  it "should yield a new session for .connect" do
+    AMQP.connect do |session|
+      session.should be_a(Moqueue::MockSession)
+    end
+  end
+
   it "should stub .connection" do
     AMQP.connection.should be_a(Moqueue::MockSession)
   end

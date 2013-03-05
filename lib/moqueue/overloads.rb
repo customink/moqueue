@@ -18,6 +18,7 @@ module AMQP
   end
 
   def self.connect(*args)
+    yield Moqueue::MockSession.new if block_given?
   end
 
   def self.connection
