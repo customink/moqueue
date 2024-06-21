@@ -23,6 +23,6 @@ tier: tier_4 # Other service or repository. Failure doesn't result in immediate 
 # tier: tier_na # this repo does not have a tier. typically libraries
 
 properties:
-  public_facing: true
+  public_facing: false
   pci: false
   pii: false
