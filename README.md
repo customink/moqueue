@@ -1,3 +1,6 @@
+<!-- OpsLevel Maturity Badge -->
+[![Overall](https://img.shields.io/endpoint?style=flat&url=https://app.opslevel.com/api/service_level/54XxI0_44iZRzKcOllU8th1F_mYAFvofRSovspVwHNI)](https://app.opslevel.com/services/moqueue/maturity-report)
+
 = Moqueue
 Moqueue is a library for mocking the various objects that make up the ruby AMQP[http://github.com/tmm1/amqp] library. It allows you to use the AMQP library naturally and test your code easily without running an AMQP broker. If you want a higher level of control, you can use your favorite mocking and stubbing library to modify individual calls to MQ.queue and the like so that they return Moqueue's mock up versions. If you want to go all-in, you can tell Moqueue to overload the MQ and AMQP. This allows you to use MQ and AMQP as normal, while Moqueue works behind the scenes to wire everything together.
 
