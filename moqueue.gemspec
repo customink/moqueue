@@ -53,6 +53,9 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "https://github.com/customink/moqueue"
   s.licenses = ["MIT"]
+
+  s.metadata["github_repo"] = "ssh://github.com/customink/moqueue"
+  s.metadata["allowed_push_host"] = "https://rubygems.pkg.github.com/customink"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.17"
   s.summary = "Mocktacular Companion to AMQP Library. Happy TATFTing!"
