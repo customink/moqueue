@@ -1,0 +1,11 @@
+# Minimal RuboCop config: the goal is to run a linter in CI (OpsLevel "CI/CD
+# includes linter" check), not to enforce a full style overhaul on legacy code.
+# reviewdog runs in added-lines mode, so only newly changed lines are flagged.
+AllCops:
+  TargetRubyVersion: 3.0
+  NewCops: disable
+  SuggestExtensions: false
+  Exclude:
+    - "vendor/**/*"
+    - "gemfiles/**/*"
+    - "bin/**/*"
