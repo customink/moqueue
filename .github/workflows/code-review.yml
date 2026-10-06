@@ -1,0 +1,23 @@
+name: Claude PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review, reopened, closed]
+
+permissions:
+  actions: read
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  review:
+    uses: customink/agent-first-standards/.github/workflows/pr-review.yml@v2
+    with:
+      verdict_policy: deterministic
+    secrets:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      CUSTOM_INK_CODE_REVIEW_APP_ID: ${{ secrets.CUSTOM_INK_CODE_REVIEW_APP_ID }}
+      CUSTOM_INK_CODE_REVIEW_PRIVATE_KEY: ${{ secrets.CUSTOM_INK_CODE_REVIEW_PRIVATE_KEY }}
+      NEW_RELIC_ACCOUNT_ID: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
+      NEW_RELIC_INSERT_KEY: ${{ secrets.NEW_RELIC_INSERT_KEY }}
