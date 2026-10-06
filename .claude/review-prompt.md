@@ -35,5 +35,4 @@ Categorize each finding:
 - Group related issues into a single review comment
 - Reference specific lines using GitHub line-link format
 - Skip auto-generated files (lockfiles, codegen output, Vite build artifacts)
-- If the entire PR looks good, do not post a comment at all
 - Read all previous review comments before posting. Do not repeat feedback that has already been given — whether by a human reviewer or a prior bot review. If a previous comment flagged an issue and it remains unfixed, you may briefly note it persists but do not re-explain.
