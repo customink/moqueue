@@ -2,8 +2,6 @@
 
 You are reviewing pull requests for moqueue. Apply the project rules from CLAUDE.md/AGENTS.md (loaded separately) in addition to this guidance.
 
-**Only comment when you have actionable feedback. Never post "looks good", "no issues found", or summary-only comments.**
-
 ## What to Evaluate
 
 - **Correctness**: the change should solve the stated problem, handle edge cases, and be free of bugs and regressions.
