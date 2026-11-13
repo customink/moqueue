@@ -13,13 +13,13 @@ Gem::Specification.new do |s|
   s.description = "Mocktacular Companion to AMQP Library. Happy TATFTing!"
   s.email = ["dan@kallistec.com"]
   s.extra_rdoc_files = [
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     "CONTRIBUTORS.rdoc",
     "Gemfile",
     "Gemfile.lock",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "VERSION.yml",
     "lib/moqueue.rb",
