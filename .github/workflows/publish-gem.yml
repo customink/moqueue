@@ -1,0 +1,42 @@
+name: Publish Gem to GitHub Packages
+
+on:
+  push:
+    tags:
+      - "v*"
+      - "[0-9]+.[0-9]+.[0-9]+"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "2.5"
+          bundler-cache: true
+
+      - name: Build gem
+        run: gem build *.gemspec
+
+      - name: Configure gem credentials
+        run: |
+          mkdir -p ~/.gem
+          cat << EOF > ~/.gem/credentials
+          ---
+          :github: Bearer ${{ secrets.GITHUB_TOKEN }}
+          EOF
+          chmod 0600 ~/.gem/credentials
+
+      - name: Push to GitHub Packages
+        run: |
+          gem push --key github \
+            --host https://rubygems.pkg.github.com/customink \
+            *.gem
